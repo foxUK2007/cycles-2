@@ -75,11 +75,9 @@ public class Main {
         //где каждый месяц к сумме его вклада добавляется ещё 7%.
         //Первоначальная сумма вклада Василия составляет 15 тысяч рублей.
         int contribution = 15000;
-        int monthlyRevenue = 0;
-        for (int p = 0; p < 12; p++) {
-            monthlyRevenue += contribution;
-            monthlyRevenue += (monthlyRevenue * 7) / 100;
-            System.out.println("Месяц " + p + ", сумма накоплений равна " + monthlyRevenue + " рублей");
+        for (int month = 1; month < 12; month++) {
+            contribution += contribution / 100 * 7;
+            System.out.println("Месяц " + month + ", сумма накоплений равна " + contribution + " рублей");
         }
         System.out.println();
 
@@ -92,13 +90,11 @@ public class Main {
         // Выведите в консоль результат программы с указанием суммы накоплений по каждому месяцу.
 
         int sumDeposit = 15000;
-        int sumAccumulation = 0;
-        int y = 0;
-        while (sumAccumulation < 12_000_000) {
-            y++;
-            sumAccumulation += sumDeposit;
-            sumAccumulation += (sumAccumulation * 7) / 100;
-            System.out.println("Месяц " + y + ", сумма накоплений равна " + sumAccumulation + " рублей");
+        int month1 = 0;
+        while (sumDeposit < 12_000_000) {
+            month1++;
+            sumDeposit += sumDeposit / 100 * 7;
+            System.out.println("Месяц " + month1 + ", сумма накоплений равна " + sumDeposit + " рублей");
         }
         System.out.println();
 
@@ -108,14 +104,12 @@ public class Main {
         //Видоизмените программу таким образом, чтобы в консоль выводились не все месяцы подряд,
         //а только каждый шестой. Должны быть видны накопления за 6, 12, 18, 24 и далее месяцы.
         int sumContribution = 15000;
-        int profit = 0;
-        int x = 0;
-        while (profit < 12_000_000) {
-            x++;
-            profit += sumContribution;
-            profit += (profit * 7) / 100;
-            if (x % 6 == 0 || x % 12 == 0 || x % 18 == 0 || x % 24 == 0) {
-                System.out.println("Месяц " + x + ", сумма накоплений равна " + profit + " рублей");
+        int month2 = 0;
+        while (sumContribution < 12_000_000) {
+            month2++;
+            sumContribution += sumContribution / 100 * 7;
+            if (month2 % 6 == 0) {
+                System.out.println("Месяц " + month2 + ", сумма накоплений равна " + sumContribution + " рублей");
             }
         }
         System.out.println();
@@ -127,15 +121,35 @@ public class Main {
         //Напишите программу, которая будет выводить Василию сумму его накоплений
         //за следующие каждые полгода в течение 9 лет.
         int andAgainContribution = 15000;
-        int totalProfit = 0;
-        for (int b = 0; b < 109; b++) {
-            totalProfit += andAgainContribution;
-            totalProfit += (totalProfit * 7) / 100;
-            if (b % 6 == 0) {
-                System.out.println("Месяц " + b + ", сумма накоплений равна " + totalProfit + " рублей");
+        for (int month3 = 1; month3 < 109; month3++) {
+            andAgainContribution += andAgainContribution / 100 * 7;
+            if (month3 % 6 == 0) {
+                System.out.println("Месяц " + month3 + ", сумма накоплений равна " + andAgainContribution + " рублей");
             }
         }
         System.out.println();
+
+        System.out.println();
+        System.out.print("Задача 4");
+        System.out.println();
+        //В вашей компании пятница является днем отчетным.
+        //Нам нужно написать программу, которая считает дни месяца по датам,
+        //определяет, какой день пятница, и выводит сообщение с напоминанием,
+        //что нужно подготовить еженедельный отчет.
+        //Условия задачи:Создайте переменную типа int,
+        //которая хранит в себе номер первой пятницы месяца (число от 1 до 7).
+        //Выведите на каждую пятницу месяца (включая полученную) сообщение следующего вида:
+        //"Сегодня пятница, ...-е число. Необходимо подготовить отчет."
+        //В нашем месяце 31 день. В результате у вас должно вывестись
+        //от 4 до 5 сообщений с напоминаниями по разным датам.
+
+        int firstFriday = 7;
+        for (firstFriday = 1; firstFriday <= 31; firstFriday += 7) {
+
+            System.out.println("Сегодня пятница, " + firstFriday + " -е число. Необходимо подготовить отчет.");
+        }
+        System.out.println();
+
 
         System.out.println("Домашнее задание 3");
         System.out.println();
@@ -157,39 +171,32 @@ public class Main {
         //1975
         //2054
 
-        int startOfObservation = 1822;
-        int endOfObservation = 2122;
-        for (int t = 1822; t < 1922; t++) {
-            if (t % 79 == 0)
-                System.out.println("Комета появлялась в " + t + " году");
-        }
-        for (int t = 1922; t < 2022; t++) {
-            if (t % 79 == 0)
-                System.out.println("Комета появлялась в " + t + " году");
-        }
-        for (int t = 2022; t < 2122; t++) {
-            if (t % 79 == 0)
-                System.out.println("Комета появится в " + t + " году");
-        }
 
-
+        int today = 2022;
+        int startObservation = today - 200;
+        int endObservation = today + 100;
+        for (int year = 0; year < endObservation; year += 79)
+            if (year > startObservation) {
+                System.out.println(year);
+            }
 
         System.out.println();
         System.out.print("Задача 2");
         System.out.println();
         //Напишите программу, которая выводит в консоль таблицу умножения на 2:
 
-        int q = 2;
-        for (
-                int j = 1;
-                j < 11; j++) {
-            q = 2 * j;
-            System.out.println("2 * " + j + " = " + q);
+        int variable = 2;
+        for (int factor = 1;factor < 11; factor++) {
+            variable = 2 * factor;
+            System.out.println("2 * " + factor + " = " + variable);
         }
-
     }
 
 }
+
+
+
+
 
 
 
